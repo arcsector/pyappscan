@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 
 project = 'PyAppscan'
-copyright = '2020, arcsector'
+copyright = '2022, arcsector'
 author = 'arcsector'
 
 # The full version, including alpha/beta/rc tags,
