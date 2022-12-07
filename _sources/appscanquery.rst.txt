@@ -1,0 +1,47 @@
+API Reference
+====================
+
+
+Module contents
+---------------
+
+.. automodule:: appscanquery
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Submodules
+----------
+
+appscanquery.appscanquery module
+--------------------------------
+
+.. automodule:: appscanquery.appscanquery
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+appscanquery.exceptions module
+------------------------------
+
+.. automodule:: appscanquery.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+appscanquery.helper module
+--------------------------
+
+.. automodule:: appscanquery.helper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+appscanquery.query module
+-------------------------
+
+.. automodule:: appscanquery.query
+   :members:
+   :undoc-members:
+   :show-inheritance:

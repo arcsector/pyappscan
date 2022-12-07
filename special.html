@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Object Methods &mdash; PyAppscan 1.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="canonical" href="https://github.com/pages/arcsector/pyappscan/special.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Object Queries" href="queries.html" />
+    <link rel="prev" title="Best Practices" href="best-practices.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PyAppscan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="best-practices.html">Best Practices</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Core Object Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#createapplication">createapplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jobcreate">jobcreate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#startjob">startjob</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updatescan">updatescan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#schedulescan">schedulescan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deletefolderitem">deletefolderitem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adduser">adduser</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Object Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyappscan.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyAppscan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Core Object Methods</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/special.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="core-object-methods">
+<h1>Core Object Methods<a class="headerlink" href="#core-object-methods" title="Permalink to this headline"></a></h1>
+<section id="createapplication">
+<h2>createapplication<a class="headerlink" href="#createapplication" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is very complicated. Use the GUI to create an application if you are unfamiliar with the application attributes</p>
+</div>
+<p>Here is the meatiest function in the API. In order to create an application, you must provide one mandatory arguement, the application name, as well as these optional arguments:</p>
+<ul class="simple">
+<li><p>attributedict: A dictionary of attributes that can be found by calling the applicationattributesquery method</p></li>
+<li><p>appdesc: The description of the application</p></li>
+<li><p>appoutdated: Boolean as to whether or not the application needs a recalculation of formula results</p></li>
+<li><p>copyappname: If you don’t know the application attributes that you specifically want, but you want to make one similar to a current application, pass an existing application’s name to this variable and it will return an array of attributes which mirror the existing application’s.</p></li>
+</ul>
+<p>You can pass both a copyappname and an attributedict in order to copy an application and then override the existing application’s attributes with your own, while keeping the ones you don’t override static. Usage:</p>
+<p>The arguments for the attributedict are as follows. A quick note; every dictionary entry, even the integers and dates, must be a string data type:</p>
+<ul class="simple">
+<li><p>Necessary:</p>
+<ul>
+<li><p>‘Name’: the name of the application</p></li>
+<li><p>‘URL’: the URL to the application that you’re scanning</p></li>
+<li><p>‘Hosts’: the IP address or server name where the application is hosted. If necessary, enter multiple values, and separate them by commas</p></li>
+<li><p>‘Development Contact’: the name of the development lead</p></li>
+<li><p>‘Business Unit’: the name of your ORG (i.e. 9100)</p></li>
+<li><p>‘Description’: a description of your scan and scanning reason</p></li>
+</ul>
+</li>
+<li><p>Optional:</p>
+<ul>
+<li><p>‘Max Severity’: the name of the maximum severity of the application. Accepted values are ‘Critical’, ‘High’, ‘Medium’, and ‘Low’</p></li>
+<li><p>‘RR_MaxSeverity’: the maximum Risk Rating. Accepted values are integers up to 10</p></li>
+<li><p>‘Tester’: the user who is testing. Defaults to the appscan_api</p></li>
+<li><p>‘Type’: the type of application to be scanned. Accepted values are ‘web’, ‘mobile’, or ‘desktop’</p></li>
+<li><p>‘Business Owner’: Owner of the application. Usually the section manager.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mydictionary</span><span class="o">=</span><span class="p">{</span>
+ <span class="s1">&#39;Name&#39;</span><span class="p">:</span><span class="s1">&#39;New App&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;URL&#39;</span><span class="p">:</span><span class="s1">&#39;https://www.example.com/webapp/url&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Hosts&#39;</span><span class="p">:</span><span class="s1">&#39;https://www.example.com&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Deveopment Contact&#39;</span><span class="p">:</span><span class="s1">&#39;username or my name&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Business Unit&#39;</span><span class="p">:</span><span class="s1">&#39;3342&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;Description&#39;</span><span class="p">:</span><span class="s1">&#39;new javascript application scan from org 3342 to get clearance for external access&#39;</span>
+<span class="p">}</span>
+<span class="n">myClass</span><span class="o">.</span><span class="n">createapplication</span><span class="p">(</span>
+ <span class="n">appname</span><span class="o">=</span><span class="s1">&#39;New App&#39;</span><span class="p">,</span>
+ <span class="n">attributedict</span><span class="o">=</span><span class="n">mydictionary</span><span class="p">,</span>
+ <span class="n">appdesc</span><span class="o">=</span><span class="s1">&#39;a new application from scratch&#39;</span>
+<span class="p">)</span>
+<span class="n">myClass</span><span class="o">.</span><span class="n">createapplication</span><span class="p">(</span>
+ <span class="n">appname</span><span class="o">=</span><span class="s1">&#39;New App2&#39;</span><span class="p">,</span>
+ <span class="n">attributedict</span><span class="o">=</span><span class="n">mydictionary</span><span class="p">,</span>
+ <span class="n">appdesc</span><span class="o">=</span><span class="s1">&#39;a new application copied from an existing one&#39;</span><span class="p">,</span>
+ <span class="n">copyappname</span><span class="o">=</span><span class="s2">&quot;Existing App&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="jobcreate">
+<h2>jobcreate<a class="headerlink" href="#jobcreate" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is much, much faster to pass the foldername, policyname, and templatename as their IDs (the function will receive them this way), instead of their names. This is because whichever ones you pass by name are run as queries in order to get them as IDs, thus, when using this function (or any function that asks for names or IDs), it would be much, much faster to simply run a templatequery or a policyquery first, save the ID, then use it in this function instead of the name, thereby executing the query only once instead of multiple times.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You must use <a class="reference internal" href="#updatescan">updatescan</a> in order to actually start this job; it has not been initialized yet.</p>
+</div>
+<p>In addition to the Queries, the program will create jobs. The required attributes are templatename, jobname, foldername, and policyname. To get this information, you may run queries (such as templatequery) to get a list of names to pass. Optional attributes are appname, jobdesc, and jobcontact (jobcontact default is the username used in the initial class, which you cannot create a job without). Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">json_result</span> <span class="o">=</span> <span class="n">myClass</span><span class="o">.</span><span class="n">jobcreate</span><span class="p">(</span>
+ <span class="n">jobname</span><span class="o">=</span><span class="s1">&#39;job1&#39;</span><span class="p">,</span>
+ <span class="n">foldername</span><span class="o">=</span><span class="s1">&#39;folder1&#39;</span><span class="p">,</span>
+ <span class="n">policyname</span><span class="o">=</span><span class="s1">&#39;policy&#39;</span><span class="p">,</span>
+ <span class="n">templatename</span><span class="o">=</span><span class="s1">&#39;template&#39;</span><span class="p">,</span>
+ <span class="n">jobdesc</span><span class="o">=</span><span class="s1">&#39;description of job&#39;</span><span class="p">,</span>
+ <span class="n">jobcontact</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span>
+ <span class="n">appname</span><span class="o">=</span><span class="s1">&#39;Main&#39;</span>
+<span class="p">)</span>
+<span class="n">json_result</span> <span class="o">=</span> <span class="n">myClass</span><span class="o">.</span><span class="n">jobcreate</span><span class="p">(</span>
+ <span class="n">jobname</span><span class="o">=</span><span class="s1">&#39;job1&#39;</span><span class="p">,</span>
+ <span class="n">foldername</span><span class="o">=</span><span class="s1">&#39;32&#39;</span><span class="p">,</span>
+ <span class="n">policyname</span><span class="o">=</span><span class="s1">&#39;44&#39;</span><span class="p">,</span>
+ <span class="n">templatename</span><span class="o">=</span><span class="s1">&#39;16&#39;</span><span class="p">,</span>
+ <span class="n">jobdesc</span><span class="o">=</span><span class="s1">&#39;description of job&#39;</span><span class="p">,</span>
+ <span class="n">jobcontact</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span>
+ <span class="n">appname</span><span class="o">=</span><span class="s1">&#39;Main&#39;</span>
+<span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">json_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="startjob">
+<h2>startjob<a class="headerlink" href="#startjob" title="Permalink to this headline"></a></h2>
+<p>This function starts any job you would like to run. It takes one mandatory argument, the jobid, and one optional argument, the action you would like to take. Currently Appscan only supports the ‘run’ argument, so it is defaulted for you to ‘run’. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">startjob</span><span class="p">(</span><span class="n">jobid</span><span class="o">=</span><span class="mi">312</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="updatescan">
+<h2>updatescan<a class="headerlink" href="#updatescan" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to make your jobs scan a url, you must also use this method</p>
+</div>
+<p>This method adds information to your job, such as starting url, login username, password, and other information, such as exceptions. This takes three mandatory arguments and one optional argument: jobid, data, and datacode are mandatory, while encrypt is not. Encrypt is a boolean which specifies whether or not you want your data encrypted in the database. Datacode defaults to ‘url’. Here is a list of passable arguments for datacode (for a list of descriptions of the following attributes, please visit the apidocs in appscan enterprise):</p>
+<ul class="simple">
+<li><p>url</p></li>
+<li><p>username</p></li>
+<li><p>password</p></li>
+<li><p>method</p></li>
+<li><p>header</p></li>
+<li><p>lockout</p></li>
+<li><p>additionaldomains</p></li>
+<li><p>exclusions</p></li>
+</ul>
+<p>Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">updatescan</span><span class="p">(</span><span class="n">jobid</span><span class="o">=</span><span class="mi">332</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;https://mysite.to.scan&#39;</span><span class="p">,</span> <span class="n">datacode</span><span class="o">=</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="n">encrypt</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">updatescan</span><span class="p">(</span><span class="n">jobid</span><span class="o">=</span><span class="mi">332</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;myname&#39;</span><span class="p">,</span> <span class="n">datacode</span><span class="o">=</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="n">encrypt</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">updatescan</span><span class="p">(</span><span class="n">jobid</span><span class="o">=</span><span class="mi">332</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;mypass&#39;</span><span class="p">,</span> <span class="n">datacode</span><span class="o">=</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="n">encrypt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="schedulescan">
+<h2>schedulescan<a class="headerlink" href="#schedulescan" title="Permalink to this headline"></a></h2>
+<p>This method schedules a scan to run at a defined interval. The required arguments are the <code class="docutils literal notranslate"><span class="pre">jobid</span></code> which is an integer and the <code class="docutils literal notranslate"><span class="pre">scheduleDelta</span></code> which is a timedelta object. The optional arguments are schedule_start (datetime), schedule_end (datetime), exclusionDelta (timedelta), exclusion_start (datetime), and exclusion_end (datetime). Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">datetime</span>
+
+<span class="c1"># run every week</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">schedulescan</span><span class="p">(</span><span class="n">jobid</span><span class="o">=</span><span class="mi">332</span><span class="p">,</span> <span class="n">scheduleDelta</span><span class="o">=</span><span class="n">delta</span><span class="p">)</span>
+
+<span class="c1"># run every month except on mondays (monday being the 2nd day of the week) for this November</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">ex_delta</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">nov_first</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">nov_last</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">schedulescan</span><span class="p">(</span>
+ <span class="n">jobid</span><span class="o">=</span><span class="mi">332</span><span class="p">,</span>
+ <span class="n">scheduleDelta</span><span class="o">=</span><span class="n">delta</span><span class="p">,</span>
+ <span class="n">exclusionDelta</span><span class="o">=</span><span class="n">delta</span><span class="p">,</span>
+ <span class="n">exclusion_start</span><span class="o">=</span><span class="n">nov_first</span><span class="p">,</span>
+ <span class="n">exclusion_end</span><span class="o">=</span><span class="n">nov_last</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="deletefolderitem">
+<h2>deletefolderitem<a class="headerlink" href="#deletefolderitem" title="Permalink to this headline"></a></h2>
+<p>This method deletes any folder item. Best practice is to delete a job and it’s report in the same query, but the only support for this right now is using the folder item ID. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">deletefolderitem</span><span class="p">(</span><span class="n">folderitemid</span><span class="o">=</span><span class="mi">1001</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="adduser">
+<h2>adduser<a class="headerlink" href="#adduser" title="Permalink to this headline"></a></h2>
+<p>This function allows any user with the right permissions to create other users. The required attributes are the new user’s Full Name, desired username, email, and userTypeId. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">json_result</span> <span class="o">=</span> <span class="n">myClass</span><span class="o">.</span><span class="n">adduser</span><span class="p">(</span>
+ <span class="n">realname</span><span class="o">=</span><span class="s1">&#39;Full Name&#39;</span><span class="p">,</span>
+ <span class="n">username</span><span class="o">=</span><span class="s1">&#39;username&#39;</span><span class="p">,</span>
+ <span class="n">email</span><span class="o">=</span><span class="s1">&#39;user@gmail.com&#39;</span><span class="p">,</span>
+ <span class="n">usertype</span><span class="o">=</span><span class="s1">&#39;No Access&#39;</span>
+<span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">json_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="best-practices.html" class="btn btn-neutral float-left" title="Best Practices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="queries.html" class="btn btn-neutral float-right" title="Object Queries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, arcsector.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

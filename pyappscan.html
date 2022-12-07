@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; PyAppscan 1.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="canonical" href="https://github.com/pages/arcsector/pyappscan/pyappscan.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Run all Scans in a Folder" href="run_all_scans_in_a_folder.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PyAppscan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="best-practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="special.html">Core Object Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Object Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyappscan">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyappscan.pyappscan">pyappscan.pyappscan module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyappscan.exceptions">pyappscan.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyappscan.helper">pyappscan.helper module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-pyappscan.query">pyappscan.query module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyAppscan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/pyappscan.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline"></a></h1>
+<section id="module-pyappscan">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyappscan" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyappscan.create_engine">
+<span class="sig-prename descclassname"><span class="pre">pyappscan.</span></span><span class="sig-name descname"><span class="pre">create_engine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'AppscanEnterpriseUser'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apikey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secretkey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.create_engine" title="Permalink to this definition"></a></dt>
+<dd><p>Convenience function for importing all modules.</p>
+<p>This function is in the base of the module and will return a properly initialized object namespace with which you can access all appscan methods. This abstracts the state management and login management of appscan. Usage:</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyappscan</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="go"># imported</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">appscan</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span>
+<span class="gp">... </span>            <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://appscan.domain.com/ase/api/&quot;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">apikey</span><span class="o">=</span><span class="s2">&quot;AEF8137319C8&quot;</span><span class="p">,</span>
+<span class="gp">... </span>            <span class="n">secretkey</span><span class="o">=</span><span class="s2">&quot;XXXXXXXX&quot;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – Base URL for appscan API</p></li>
+<li><p><strong>username</strong> (<em>str</em><em>, </em><em>optional</em>) – Username to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">password</span></code>. Defaults to None.</p></li>
+<li><p><strong>password</strong> (<em>str</em><em>, </em><em>optional</em>) – Password to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">username</span></code>. Defaults to None.</p></li>
+<li><p><strong>key</strong> (<em>str</em><em>, </em><em>optional</em>) – Feature Key to log in as. Defaults to “AppscanEnterpriseUser”.</p></li>
+<li><p><strong>apikey</strong> (<em>str</em><em>, </em><em>optional</em>) – API Key to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">secretkey</span></code>. Defaults to None.</p></li>
+<li><p><strong>secretkey</strong> (<em>str</em><em>, </em><em>optional</em>) – API Secret to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">apikey</span></code>. Defaults to None.</p></li>
+<li><p><strong>verify</strong> (<em>bool</em><em>, </em><em>optional</em>) – Certificate path for requests. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pyappscan.pyappscan.PyAppscan" title="pyappscan.pyappscan.PyAppscan"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyappscan.pyappscan.PyAppscan</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-pyappscan.pyappscan">
+<span id="pyappscan-pyappscan-module"></span><h2>pyappscan.pyappscan module<a class="headerlink" href="#module-pyappscan.pyappscan" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyappscan.pyappscan.</span></span><span class="sig-name descname"><span class="pre">PyAppscan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baseurl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'AppscanEnterpriseUser'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apikey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secretkey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyappscan.query.Query" title="pyappscan.query.Query"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyappscan.query.Query</span></code></a></p>
+<p>Main class that is returned when called from <a class="reference internal" href="#pyappscan.create_engine" title="pyappscan.create_engine"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyappscan.create_engine()</span></code></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may be wondering why there is no <code class="docutils literal notranslate"><span class="pre">deletejob</span></code> method. This is because you
+cannot directly delete jobs via the API, you have to delete the folder item.
+This can be done using the <a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.deletefolderitem" title="pyappscan.pyappscan.PyAppscan.deletefolderitem"><code class="xref py py-meth docutils literal notranslate"><span class="pre">deletefolderitem()</span></code></a> method, during which you
+should also delete the associated report, as not deleting it causes issues with
+Appscan internals.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>baseurl</strong> (<em>str</em>) – Base URL for appscan</p></li>
+<li><p><strong>username</strong> (<em>str</em><em>, </em><em>optional</em>) – Username to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">password</span></code>. Defaults to None.</p></li>
+<li><p><strong>password</strong> (<em>str</em><em>, </em><em>optional</em>) – Password to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">username</span></code>. Defaults to None.</p></li>
+<li><p><strong>key</strong> (<em>str</em><em>, </em><em>optional</em>) – Feature Key to log in as. Defaults to “AppscanEnterpriseUser”.</p></li>
+<li><p><strong>apikey</strong> (<em>str</em><em>, </em><em>optional</em>) – API Key to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">secretkey</span></code>. Defaults to None.</p></li>
+<li><p><strong>secretkey</strong> (<em>str</em><em>, </em><em>optional</em>) – API Secret to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">apikey</span></code>. Defaults to None.</p></li>
+<li><p><strong>verify</strong> (<em>bool</em><em>, </em><em>optional</em>) – Certificate path for requests. Defaults to False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.baseurl">
+<span class="sig-name descname"><span class="pre">baseurl</span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.baseurl" title="Permalink to this definition"></a></dt>
+<dd><p>Base URL for appscan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.username">
+<span class="sig-name descname"><span class="pre">username</span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.username" title="Permalink to this definition"></a></dt>
+<dd><p>Username to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">password</span></code>. Defaults to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.password" title="Permalink to this definition"></a></dt>
+<dd><p>Password to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">username</span></code>. Defaults to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.key">
+<span class="sig-name descname"><span class="pre">key</span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.key" title="Permalink to this definition"></a></dt>
+<dd><p>Feature Key to log in as. Defaults to “AppscanEnterpriseUser”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.apikey">
+<span class="sig-name descname"><span class="pre">apikey</span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.apikey" title="Permalink to this definition"></a></dt>
+<dd><p>API Key to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">secretkey</span></code>. Defaults to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.secretkey">
+<span class="sig-name descname"><span class="pre">secretkey</span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.secretkey" title="Permalink to this definition"></a></dt>
+<dd><p>API Secret to log in with; used in conjunction with <code class="docutils literal notranslate"><span class="pre">apikey</span></code>. Defaults to None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.verify">
+<span class="sig-name descname"><span class="pre">verify</span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.verify" title="Permalink to this definition"></a></dt>
+<dd><p>Certificate path for requests. Defaults to False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.logger">
+<span class="sig-name descname"><span class="pre">logger</span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.logger" title="Permalink to this definition"></a></dt>
+<dd><p>logger for pyappscan; this can be overwritten by running the following
+on an instantiated object:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">handlers</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Logger</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.adduser">
+<span class="sig-name descname"><span class="pre">adduser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">realname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usertype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.adduser" title="Permalink to this definition"></a></dt>
+<dd><p>Add a user to appscan with a given usertype</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>realname</strong> (<em>str</em>) – Real name of the user</p></li>
+<li><p><strong>username</strong> (<em>str</em>) – Desired user name of the user</p></li>
+<li><p><strong>email</strong> (<em>str</em>) – Email of the user</p></li>
+<li><p><strong>usertype</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – Usertype ID; if string, usertype ID will be grabbed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pyappscan.exceptions.UserTypeError" title="pyappscan.exceptions.UserTypeError"><strong>UserTypeError</strong></a> – Not a valid user type; valid user types can be found using
+    the <code class="xref py py-meth docutils literal notranslate"><span class="pre">usertypequery()</span></code> method</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Result of user submission</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, str]</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.query.Query.usertypequery" title="pyappscan.query.Query.usertypequery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.query.Query.usertypequery()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.createapikey">
+<span class="sig-name descname"><span class="pre">createapikey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.createapikey" title="Permalink to this definition"></a></dt>
+<dd><p>Create API key</p>
+<p>Creates an API key and Secret Key for current user to utilize instead
+of username/password combo, also no <code class="docutils literal notranslate"><span class="pre">key</span></code> is needed, and can be safely
+stored in environment variables or encrypted files (still do not commit
+these to Github)!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Can be run as many times as you want, but invalidates old API/Secret key combo</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Dictionary containing api key and secret key</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.createapplication">
+<span class="sig-name descname"><span class="pre">createapplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributedict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appdesc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appoutdated</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copyappname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.createapplication" title="Permalink to this definition"></a></dt>
+<dd><p>Create application from attribute dictionary</p>
+<p>Note that the dictionary structure is:
+dict
+—-dict
+——–list
+————dict</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When giving a <code class="docutils literal notranslate"><span class="pre">copyappname</span></code> and an <code class="docutils literal notranslate"><span class="pre">attributedict</span></code>, you will overwrite only the entries in the
+<code class="docutils literal notranslate"><span class="pre">copyappname</span></code> app’s attriute dictionary which exist in the <code class="docutils literal notranslate"><span class="pre">attributedict</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>appname</strong> (<em>str</em>) – Application name</p></li>
+<li><p><strong>attributedict</strong> (<em>dict</em><em>, </em><em>optional</em>) – Attribute dictionary for application; you can find this by querying <code class="xref py py-meth docutils literal notranslate"><span class="pre">applicationattributequery()</span></code>. Defaults to None.</p></li>
+<li><p><strong>appdesc</strong> (<em>str</em><em>, </em><em>optional</em>) – App description. Defaults to None.</p></li>
+<li><p><strong>appoutdated</strong> (<em>bool</em><em>, </em><em>optional</em>) – Is the app outdated. Defaults to False.</p></li>
+<li><p><strong>copyappname</strong> (<em>str</em><em>, </em><em>optional</em>) – Application to copy and merge attributes. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when neither <code class="docutils literal notranslate"><span class="pre">attributedict</span></code> or <code class="docutils literal notranslate"><span class="pre">copyappname</span></code> are given,
+    although they can both be given to merge attributes</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Result of app creation, including app ID</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.query.Query.applicationattributequery" title="pyappscan.query.Query.applicationattributequery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.query.Query.applicationattributequery()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.createfolder">
+<span class="sig-name descname"><span class="pre">createfolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.createfolder" title="Permalink to this definition"></a></dt>
+<dd><p>Create a folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Folder name</p></li>
+<li><p><strong>parent</strong> (<em>int OR str</em>) – Folder parent ID; if string, folder ID will be grabbed</p></li>
+<li><p><strong>description</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder description. Defaults to None.</p></li>
+<li><p><strong>contact</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder contact info. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Parent cannot be <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Result of folder creation including folder ID</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.createfolderitem">
+<span class="sig-name descname"><span class="pre">createfolderitem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">templateid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">empty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keySet</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.createfolderitem" title="Permalink to this definition"></a></dt>
+<dd><p>Create a folder item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>templateid</strong> (<em>int</em>) – Template ID</p></li>
+<li><p><strong>appid</strong> (<em>App ID</em>) – Application ID</p></li>
+<li><p><strong>size</strong> (<em>int</em><em>, </em><em>optional</em>) – size of folder item. Defaults to None.</p></li>
+<li><p><strong>empty</strong> (<em>bool</em><em>, </em><em>optional</em>) – Is item empty. Defaults to False.</p></li>
+<li><p><strong>keySet</strong> (<em>str</em><em>, </em><em>optional</em>) – Keyset for folder item. Defaults to None.</p></li>
+<li><p><strong>values</strong> (<em>dict</em><em>, </em><em>optional</em>) – Value dictionary for folder item. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>NotImplementedError</strong> – Not implemented yet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.createjob">
+<span class="sig-name descname"><span class="pre">createjob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policyname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">templatename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobdesc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobcontact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.createjob" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.jobcreate" title="pyappscan.pyappscan.PyAppscan.jobcreate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jobcreate()</span></code></a></p>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.jobcreate" title="pyappscan.pyappscan.PyAppscan.jobcreate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jobcreate()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.createuser">
+<span class="sig-name descname"><span class="pre">createuser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">realname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usertype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.createuser" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.adduser" title="pyappscan.pyappscan.PyAppscan.adduser"><code class="xref py py-meth docutils literal notranslate"><span class="pre">adduser()</span></code></a> for convenience</p>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.adduser" title="pyappscan.pyappscan.PyAppscan.adduser"><code class="xref py py-meth docutils literal notranslate"><span class="pre">adduser()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.deleteapikey">
+<span class="sig-name descname"><span class="pre">deleteapikey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.deleteapikey" title="Permalink to this definition"></a></dt>
+<dd><p>Deletes API key for current user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Result of api key deletion</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.deleteapplication">
+<span class="sig-name descname"><span class="pre">deleteapplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.deleteapplication" title="Permalink to this definition"></a></dt>
+<dd><p>Delete application</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>appid</strong> (<em>int</em>) – Application ID</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – raised if App ID is <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Result of deletion</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.deletefolder">
+<span class="sig-name descname"><span class="pre">deletefolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.deletefolder" title="Permalink to this definition"></a></dt>
+<dd><p>Delete folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>folderid</strong> (<em>int</em>) – Folder ID</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of folder deletion</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.deletefolderitem">
+<span class="sig-name descname"><span class="pre">deletefolderitem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderitemid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.deletefolderitem" title="Permalink to this definition"></a></dt>
+<dd><p>Delete folder item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>folderitemid</strong> (<em>int</em>) – Folder item ID</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of folder item deletion</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.jobcreate">
+<span class="sig-name descname"><span class="pre">jobcreate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policyname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">templatename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobdesc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobcontact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.jobcreate" title="Permalink to this definition"></a></dt>
+<dd><p>Create a folder job</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to initialize a job you have to run <a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.updatescan" title="pyappscan.pyappscan.PyAppscan.updatescan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">updatescan()</span></code></a> to
+specify a starting URL.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jobname</strong> (<em>str</em>) – Job name</p></li>
+<li><p><strong>policyname</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – Policy ID or Name</p></li>
+<li><p><strong>foldername</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – Folder ID or Name</p></li>
+<li><p><strong>templatename</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – Template ID or Name</p></li>
+<li><p><strong>jobdesc</strong> (<em>str</em><em>, </em><em>optional</em>) – Job Description. Defaults to None.</p></li>
+<li><p><strong>jobcontact</strong> (<em>str</em><em>, </em><em>optional</em>) – Job contact. Defaults to None.</p></li>
+<li><p><strong>appname</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Application ID or Name to associate</p></li>
+<li><p><strong>None.</strong> (<em>with the job. Defaults to</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Results of job creation including assigned Job ID</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.updatescan" title="pyappscan.pyappscan.PyAppscan.updatescan"><code class="xref py py-meth docutils literal notranslate"><span class="pre">updatescan()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.schedulescan">
+<span class="sig-name descname"><span class="pre">schedulescan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduleDelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.timedelta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schedule_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusionDelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.timedelta</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusion_start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclusion_end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">datetime.datetime</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.schedulescan" title="Permalink to this definition"></a></dt>
+<dd><p>Schedule scan for recurring scanning</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature is still in beta.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jobid</strong> (<em>int</em>) – Job ID</p></li>
+<li><p><strong>scheduleDelta</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>) – interval to schedule at</p></li>
+<li><p><strong>schedule_start</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, optional) – time to start scan schedule. Defaults to None.</p></li>
+<li><p><strong>schedule_end</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, optional) – time to end scan schedule. Defaults to None.</p></li>
+<li><p><strong>exclusionDelta</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>, optional) – interval to exlude during. Defaults to None.</p></li>
+<li><p><strong>exclusion_start</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, optional) – time to start exclusion schedule. Defaults to None.</p></li>
+<li><p><strong>exclusion_end</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.datetime</span></code>, optional) – time to end exclusion schedule. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Schedule result</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.startjob">
+<span class="sig-name descname"><span class="pre">startjob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'run'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.startjob" title="Permalink to this definition"></a></dt>
+<dd><p>Start a scan on a job</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jobid</strong> (<em>int</em>) – Job ID</p></li>
+<li><p><strong>action</strong> (<em>str</em><em>, </em><em>optional</em>) – Action to take; only exists for extensibility, as
+the only supported action as of writing is <code class="docutils literal notranslate"><span class="pre">run</span></code>. Defaults to ‘run’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of job start</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.startscan">
+<span class="sig-name descname"><span class="pre">startscan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'run'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.startscan" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for <a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.startjob" title="pyappscan.pyappscan.PyAppscan.startjob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">startjob()</span></code></a></p>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.startjob" title="pyappscan.pyappscan.PyAppscan.startjob"><code class="xref py py-meth docutils literal notranslate"><span class="pre">startjob()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.updateapplication">
+<span class="sig-name descname"><span class="pre">updateapplication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributedict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appdesc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appoutdated</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copyappname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.updateapplication" title="Permalink to this definition"></a></dt>
+<dd><p>Update application</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>appid</strong> (<em>int</em>) – App ID</p></li>
+<li><p><strong>appname</strong> (<em>str</em>) – Application name</p></li>
+<li><p><strong>attributedict</strong> (<em>dict</em><em>, </em><em>optional</em>) – Attribute dictionary for application; you can find this by querying <code class="xref py py-meth docutils literal notranslate"><span class="pre">applicationattributequery()</span></code>. Defaults to None.</p></li>
+<li><p><strong>appdesc</strong> (<em>str</em><em>, </em><em>optional</em>) – App description. Defaults to None.</p></li>
+<li><p><strong>appoutdated</strong> (<em>bool</em><em>, </em><em>optional</em>) – Is the app outdated. Defaults to False.</p></li>
+<li><p><strong>copyappname</strong> (<em>str</em><em>, </em><em>optional</em>) – Application to copy and merge attributes. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised when neither <code class="docutils literal notranslate"><span class="pre">attributedict</span></code> or <code class="docutils literal notranslate"><span class="pre">copyappname</span></code> are given,
+    although they can both be given to merge attributes</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Result of app creation, including app ID</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.updatefolder">
+<span class="sig-name descname"><span class="pre">updatefolder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.updatefolder" title="Permalink to this definition"></a></dt>
+<dd><p>Update folder</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folderid</strong> (<em>int</em>) – Folder ID</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder name. Defaults to None.</p></li>
+<li><p><strong>description</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder description. Defaults to None.</p></li>
+<li><p><strong>contact</strong> (<em>str</em><em>, </em><em>optional</em>) – Folder contact info. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Result of folder update</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.updatejob">
+<span class="sig-name descname"><span class="pre">updatejob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">policyname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">templatename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobdesc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobcontact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.updatejob" title="Permalink to this definition"></a></dt>
+<dd><p>Update job information</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jobid</strong> (<em>int</em>) – Job ID</p></li>
+<li><p><strong>jobname</strong> (<em>str</em>) – Job name</p></li>
+<li><p><strong>policyname</strong> (<em>int OR str</em>) – Policy ID or Name</p></li>
+<li><p><strong>foldername</strong> (<em>int OR str</em>) – Folder ID or Name</p></li>
+<li><p><strong>templatename</strong> (<em>int OR str</em>) – Template ID or Name</p></li>
+<li><p><strong>jobdesc</strong> (<em>str</em><em>, </em><em>optional</em>) – Job Description. Defaults to None.</p></li>
+<li><p><strong>jobcontact</strong> (<em>str</em><em>, </em><em>optional</em>) – Job contact. Defaults to None.</p></li>
+<li><p><strong>appname</strong> (<em>int OR str</em><em>, </em><em>optional</em>) – Application ID or Name to associate</p></li>
+<li><p><strong>None.</strong> (<em>with the job. Defaults to</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Results of job update</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.pyappscan.PyAppscan.updatescan">
+<span class="sig-name descname"><span class="pre">updatescan</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datacode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'url'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encrypt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.pyappscan.PyAppscan.updatescan" title="Permalink to this definition"></a></dt>
+<dd><p>Updates variables in a given job</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>jobid</strong> (<em>int</em>) – Job ID</p></li>
+<li><p><strong>data</strong> (<em>str</em>) – Data value to send to datacode</p></li>
+<li><p><strong>datacode</strong> (<em>str</em><em>, </em><em>optional</em>) – Data code to apply value to on given job. Defaults to ‘url’. Acceptable entries:
+* <code class="docutils literal notranslate"><span class="pre">url</span></code>
+* <code class="docutils literal notranslate"><span class="pre">username</span></code>
+* <code class="docutils literal notranslate"><span class="pre">password</span></code>
+* <code class="docutils literal notranslate"><span class="pre">method</span></code>
+* <code class="docutils literal notranslate"><span class="pre">header</span></code>
+* <code class="docutils literal notranslate"><span class="pre">lockout</span></code>
+* <code class="docutils literal notranslate"><span class="pre">additionaldomains</span></code>
+* <code class="docutils literal notranslate"><span class="pre">exclusions</span></code></p></li>
+<li><p><strong>encrypt</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not to encrypt data; should be</p></li>
+<li><p><strong>other</strong> (<em>done when datacode is username</em><em> or </em><em>password</em><em> or </em><em>when</em>) – </p></li>
+<li><p><strong>uploaded</strong> (<em>sensitive info is being</em>) – </p></li>
+<li><p><strong>False.</strong> (<em>like header auth tokens. Defaults to</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pyappscan.exceptions.DataCodeError" title="pyappscan.exceptions.DataCodeError"><strong>DataCodeError</strong></a> – When <code class="docutils literal notranslate"><span class="pre">datacode</span></code> is not valid.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Result of scan update</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyappscan.exceptions">
+<span id="pyappscan-exceptions-module"></span><h2>pyappscan.exceptions module<a class="headerlink" href="#module-pyappscan.exceptions" title="Permalink to this headline"></a></h2>
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyappscan.exceptions.AttrError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyappscan.exceptions.</span></span><span class="sig-name descname"><span class="pre">AttrError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.exceptions.AttrError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Bad attribute in app attribute dictionary</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyappscan.exceptions.DataCodeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyappscan.exceptions.</span></span><span class="sig-name descname"><span class="pre">DataCodeError</span></span><a class="headerlink" href="#pyappscan.exceptions.DataCodeError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Bad Data Code</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyappscan.exceptions.LoginError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyappscan.exceptions.</span></span><span class="sig-name descname"><span class="pre">LoginError</span></span><a class="headerlink" href="#pyappscan.exceptions.LoginError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Login failed</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyappscan.exceptions.LogoutError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyappscan.exceptions.</span></span><span class="sig-name descname"><span class="pre">LogoutError</span></span><a class="headerlink" href="#pyappscan.exceptions.LogoutError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Logout failed</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="pyappscan.exceptions.UserTypeError">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyappscan.exceptions.</span></span><span class="sig-name descname"><span class="pre">UserTypeError</span></span><a class="headerlink" href="#pyappscan.exceptions.UserTypeError" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Bad Usertype</p>
+</dd></dl>
+
+</section>
+<section id="module-pyappscan.helper">
+<span id="pyappscan-helper-module"></span><h2>pyappscan.helper module<a class="headerlink" href="#module-pyappscan.helper" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyappscan.helper.</span></span><span class="sig-name descname"><span class="pre">Helper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baseurl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apikey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secretkey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.helper.Helper" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Helper class which is inherited by all other classes; do not use this class directly, use <a class="reference internal" href="#pyappscan.create_engine" title="pyappscan.create_engine"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyappscan.create_engine()</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.attributecheck">
+<span class="sig-name descname"><span class="pre">attributecheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attributedict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.helper.Helper.attributecheck" title="Permalink to this definition"></a></dt>
+<dd><p>Checks attributes for <a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.createapplication" title="pyappscan.pyappscan.PyAppscan.createapplication"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.pyappscan.PyAppscan.createapplication()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>attributedict</strong> (<em>dict</em>) – attribute dictionary</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pyappscan.exceptions.AttrError" title="pyappscan.exceptions.AttrError"><strong>AttrError</strong></a> – Raised if attribute not present</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.createapplication" title="pyappscan.pyappscan.PyAppscan.createapplication"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.pyappscan.PyAppscan.createapplication()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#pyappscan.pyappscan.PyAppscan.updateapplication" title="pyappscan.pyappscan.PyAppscan.updateapplication"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.pyappscan.PyAppscan.updateapplication()</span></code></a></p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.deltaToString">
+<span class="sig-name descname"><span class="pre">deltaToString</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime.timedelta</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.deltaToString" title="Permalink to this definition"></a></dt>
+<dd><p>Converts a python <code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code> object to an appscan scheduling string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>delta</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">datetime.timedelta</span></code>) – python timedelta object</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – raised when delta is not timedelta</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>tuple of the datestring, and the type of datestring respectively</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Tuple[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.dictprint">
+<span class="sig-name descname"><span class="pre">dictprint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tab</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.dictprint" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.dicttolistofdicts">
+<span class="sig-name descname"><span class="pre">dicttolistofdicts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.dicttolistofdicts" title="Permalink to this definition"></a></dt>
+<dd><p>Converts a dictionary to a list of dictionaries</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dic</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – dictionary to be converted</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of dictionaries</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[Dict[str, Any]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.login">
+<span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">requests.sessions.Session</span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.login" title="Permalink to this definition"></a></dt>
+<dd><p>Logs into the server; you shouldn’t have to call this yourself</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pyappscan.exceptions.LoginError" title="pyappscan.exceptions.LoginError"><strong>LoginError</strong></a> – Raised if Login was unsuccessful</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Requests session with login cookies</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.logout">
+<span class="sig-name descname"><span class="pre">logout</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">requests.sessions.Session</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">requests.models.Response</span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.logout" title="Permalink to this definition"></a></dt>
+<dd><p>Logs out of appscan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>session</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code>) – a requests session object that has been logged into appscan with <a class="reference internal" href="#pyappscan.helper.Helper.login" title="pyappscan.helper.Helper.login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">login()</span></code></a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="#pyappscan.exceptions.LogoutError" title="pyappscan.exceptions.LogoutError"><strong>LogoutError</strong></a> – Raised when logout failed</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Requests response object after logging out</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Response</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.queryhelper">
+<span class="sig-name descname"><span class="pre">queryhelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_ext</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.queryhelper" title="Permalink to this definition"></a></dt>
+<dd><p>Decides how to query endpoint data</p>
+<p>If name is given but category is not,
+returns query of <code class="docutils literal notranslate"><span class="pre">url_ext</span></code> with <code class="docutils literal notranslate"><span class="pre">name</span></code> appended for direct item query. If
+name is not given, it returns the query of <code class="docutils literal notranslate"><span class="pre">url_ext</span></code>. If name and
+category are given, it returns the query of <code class="docutils literal notranslate"><span class="pre">url_ext</span></code> after searching for
+value <code class="docutils literal notranslate"><span class="pre">name</span></code> in key <code class="docutils literal notranslate"><span class="pre">category</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url_ext</strong> (<em>str</em>) – Extension of <code class="xref py py-attr docutils literal notranslate"><span class="pre">baseurl</span></code> to query</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for; either appended to <code class="docutils literal notranslate"><span class="pre">url_ext</span></code>
+or searched for in key <code class="docutils literal notranslate"><span class="pre">category</span></code>. Defaults to None.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search <code class="docutils literal notranslate"><span class="pre">name</span></code> in. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>either returns a dictionary or a list; will return dictionary</dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">name</span></code> is given or if <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">category</span></code> are given.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[Dict[str, str], List[str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.returnhtml">
+<span class="sig-name descname"><span class="pre">returnhtml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">requests.models.Response</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.returnhtml" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function to return HTML content from a response object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Response</span></code>) – a requests response object from appscan</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns binary unicode content that must be decoded</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.returnobject">
+<span class="sig-name descname"><span class="pre">returnobject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">requests.models.Response</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">requests.models.Response</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.returnobject" title="Permalink to this definition"></a></dt>
+<dd><p>Helper function to return json or log and return errors with the request</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>obj</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Response</span></code>) – a requests response object from appscan</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>if json can be coerced, return JSON, else return object back</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[dict, <code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Response</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.searchdict">
+<span class="sig-name descname"><span class="pre">searchdict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dic</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.searchdict" title="Permalink to this definition"></a></dt>
+<dd><p>Searches a dictionary of lists for a value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dic</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>list</em><em>]</em>) – Dictionary of lists</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Value to be searched for</p></li>
+<li><p><strong>category</strong> (<em>str</em>) – Key to search <code class="docutils literal notranslate"><span class="pre">name</span></code> in</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">dic</span></code> is not type <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns <code class="docutils literal notranslate"><span class="pre">dict</span></code> when found, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code> if not found</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[Dict[str, Any], None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.searchlist">
+<span class="sig-name descname"><span class="pre">searchlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">liss</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.searchlist" title="Permalink to this definition"></a></dt>
+<dd><p>Searches a python list of dictionaries for dict containing value <code class="docutils literal notranslate"><span class="pre">name</span></code> and key <code class="docutils literal notranslate"><span class="pre">category</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>liss</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – List of dictionaries to be searched</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Value to be searched for</p></li>
+<li><p><strong>category</strong> (<em>str</em>) – Key to search <code class="docutils literal notranslate"><span class="pre">name</span></code> in</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised when <code class="docutils literal notranslate"><span class="pre">liss</span></code> is not type <code class="xref py py-obj docutils literal notranslate"><span class="pre">list</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns dictionary if found, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code> if not found.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[Dict[str, Any], None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.helper.Helper.version">
+<span class="sig-name descname"><span class="pre">version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.helper.Helper.version" title="Permalink to this definition"></a></dt>
+<dd><p>Returns version of appscan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Version dictionary</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-pyappscan.query">
+<span id="pyappscan-query-module"></span><h2>pyappscan.query module<a class="headerlink" href="#module-pyappscan.query" title="Permalink to this headline"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyappscan.query.Query">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyappscan.query.</span></span><span class="sig-name descname"><span class="pre">Query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">baseurl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apikey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">secretkey</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verify</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.query.Query" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyappscan.helper.Helper" title="pyappscan.helper.Helper"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyappscan.helper.Helper</span></code></a></p>
+<p>Do not call this directly; use <a class="reference internal" href="#pyappscan.create_engine" title="pyappscan.create_engine"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyappscan.create_engine()</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.aboutissue">
+<span class="sig-name descname"><span class="pre">aboutissue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">issueid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#pyappscan.query.Query.aboutissue" title="Permalink to this definition"></a></dt>
+<dd><p>Gets HTML document about given issue ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>appid</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>str</em><em>]</em>) – Application ID; if string, app ID will be grabbed.</p></li>
+<li><p><strong>issueid</strong> (<em>int</em>) – Issue ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTML encoded in UTF-8 format</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.appissuequery">
+<span class="sig-name descname"><span class="pre">appissuequery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">severity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'High'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sortBy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Severity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itemcount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">includeinfoseverity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.appissuequery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries issues endpoint using application path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>appname</strong> (<em>str OR int</em><em>, </em><em>optional</em>) – Application ID or name. If <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>None.</strong> (<em>grabs app ID for you. Defaults to</em>) – </p></li>
+<li><p><strong>severity</strong> (<em>str</em><em>, </em><em>optional</em>) – Severity of issues to include. Defaults to ‘High’.</p></li>
+<li><p><strong>sortBy</strong> (<em>str</em><em>, </em><em>optional</em>) – Sorting category. Defaults to ‘Severity’.</p></li>
+<li><p><strong>itemcount</strong> (<em>int</em><em>, </em><em>optional</em>) – Amount of issues to return. Defaults to 100.</p></li>
+<li><p><strong>includeinfoseverity</strong> (<em>bool</em><em>, </em><em>optional</em>) – Include issues with informational</p></li>
+<li><p><strong>False.</strong> (<em>severity. Defaults to</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of issue dictionaries</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.applicationattributequery">
+<span class="sig-name descname"><span class="pre">applicationattributequery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">appid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.applicationattributequery" title="Permalink to this definition"></a></dt>
+<dd><p>Gets attributes of application</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>appid</strong> (<em>int OR str</em><em>, </em><em>optional</em>) – App ID; if string, the app ID is grabbed. Defaults to None.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dictionary of attributes with attribute list inside.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, List[dict]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.applicationquery">
+<span class="sig-name descname"><span class="pre">applicationquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.applicationquery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries application endpoint</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.buildfoldertree">
+<span class="sig-name descname"><span class="pre">buildfoldertree</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#pyappscan.query.Query.buildfoldertree" title="Permalink to this definition"></a></dt>
+<dd><p>Used to print out the entire tree of the folder structure of appscan</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>formatted tree string</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.currentscans">
+<span class="sig-name descname"><span class="pre">currentscans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.currentscans" title="Permalink to this definition"></a></dt>
+<dd><p>Queries scan queue/management endpoint</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.dashboardquery">
+<span class="sig-name descname"><span class="pre">dashboardquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">businessunit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#pyappscan.query.Query.dashboardquery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries dashboard</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is method is still in beta</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>businessunit</strong> (<em>str</em>) – Business unit associated with the dashboard</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTML of dashboard</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.dastquery">
+<span class="sig-name descname"><span class="pre">dastquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.dastquery" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the DAST configuration of the job</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jobid</strong> (<em>int</em>) – ID of job</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>DAST configuration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.folderitemquery">
+<span class="sig-name descname"><span class="pre">folderitemquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderitemid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reports</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scanlog</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">statistics</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.query.Query.folderitemquery" title="Permalink to this definition"></a></dt>
+<dd><p>Gets a given folder item’s requested information</p>
+<p><code class="docutils literal notranslate"><span class="pre">options</span></code> returns the options associated with the folder item
+<code class="docutils literal notranslate"><span class="pre">reports</span></code> returns report IDs and info associated with the folder item
+<code class="docutils literal notranslate"><span class="pre">scanlog</span></code> returns the scan log of the folder item
+<code class="docutils literal notranslate"><span class="pre">statistics</span></code> returns the statistics of the folder item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folderitemid</strong> (<em>int</em>) – Folder item ID</p></li>
+<li><p><strong>options</strong> (<em>bool</em><em>, </em><em>optional</em>) – returns the options associated with the folder item. Defaults to False.</p></li>
+<li><p><strong>reports</strong> (<em>bool</em><em>, </em><em>optional</em>) – returns report IDs and info associated with the folder item. Defaults to False.</p></li>
+<li><p><strong>scanlog</strong> (<em>bool</em><em>, </em><em>optional</em>) – returns the scan log of the folder item. Defaults to False.</p></li>
+<li><p><strong>statistics</strong> (<em>bool</em><em>, </em><em>optional</em>) – returns the statistics of the folder item. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raised if you provide a string for <code class="docutils literal notranslate"><span class="pre">folderitemid</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns information requested</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.folderitemsquery">
+<span class="sig-name descname"><span class="pre">folderitemsquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folderid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyword</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.folderitemsquery" title="Permalink to this definition"></a></dt>
+<dd><p>Get all items in a folder, DAST-compliant or not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folderid</strong> (<em>int OR str</em>) – Folder ID; if string, folder ID will be grabbed.</p></li>
+<li><p><strong>keyword</strong> (<em>str</em><em>, </em><em>optional</em>) – Keyword if you know the type of folder items you’re</p></li>
+<li><p><strong>values</strong> (<em>looking for. Defaults to None. Accepted</em>) – <code class="docutils literal notranslate"><span class="pre">report-pack</span></code>
+<code class="docutils literal notranslate"><span class="pre">content-scan-job</span></code></p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for in <code class="docutils literal notranslate"><span class="pre">category</span></code>. Defaults to None.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for <code class="docutils literal notranslate"><span class="pre">name</span></code>. Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Report pack, scan jobs, or both, depending on the keyword or lack thereof</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.folderjobsquery">
+<span class="sig-name descname"><span class="pre">folderjobsquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">foldername</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jobname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.folderjobsquery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries jobs endpoint of folder path</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>foldername</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em>) – ID or name of folder to query; if <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p><strong>you</strong> (<em>grabs ID for</em>) – </p></li>
+<li><p><strong>jobname</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em><em>, </em><em>optional</em>) – Job ID or name; if <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> grabs ID</p></li>
+<li><p><strong>None.</strong> (<em>for you. Defaults to</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> if only <code class="docutils literal notranslate"><span class="pre">foldername</span></code> is given,
+returns <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[List[dict], Dict[str, str]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.folderquery">
+<span class="sig-name descname"><span class="pre">folderquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.folderquery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries folder endpoint</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.getapikey">
+<span class="sig-name descname"><span class="pre">getapikey</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyappscan.query.Query.getapikey" title="Permalink to this definition"></a></dt>
+<dd><p>Gets API key and API secret from appscan; requires <code class="xref py py-attr docutils literal notranslate"><span class="pre">username</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">password</span></code> to work</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.issueattributequery">
+<span class="sig-name descname"><span class="pre">issueattributequery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.issueattributequery" title="Permalink to this definition"></a></dt>
+<dd><p>Gets issue attributes JSON schema</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dictionary of attirbutes</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[str, List[dict]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.issuequery">
+<span class="sig-name descname"><span class="pre">issuequery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reportid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">appid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">issueid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zipfile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">issuecount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.issuequery" title="Permalink to this definition"></a></dt>
+<dd><p>Grabs issues from either a report or an app, or grabs issue details</p>
+<p>Provided a <code class="docutils literal notranslate"><span class="pre">reportid</span></code>, this will use <a class="reference internal" href="#pyappscan.query.Query.reportquery" title="pyappscan.query.Query.reportquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportquery()</span></code></a> to grab issues, or if
+provided an <code class="docutils literal notranslate"><span class="pre">appid</span></code>, this will use <a class="reference internal" href="#pyappscan.query.Query.appissuequery" title="pyappscan.query.Query.appissuequery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">appissuequery()</span></code></a> to grab issues, or if
+provided an <code class="docutils literal notranslate"><span class="pre">issueid</span></code> in concurrence with either one will return that
+specific isssue from the requested app or report.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is deprecated due to being discouraged when the ability
+to call <a class="reference internal" href="#pyappscan.query.Query.reportjsonquery" title="pyappscan.query.Query.reportjsonquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportjsonquery()</span></code></a> or <a class="reference internal" href="#pyappscan.query.Query.appissuequery" title="pyappscan.query.Query.appissuequery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">appissuequery()</span></code></a> is feasible,
+and for using <a class="reference internal" href="#pyappscan.query.Query.reportquery" title="pyappscan.query.Query.reportquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportquery()</span></code></a> instead of <a class="reference internal" href="#pyappscan.query.Query.reportjsonquery" title="pyappscan.query.Query.reportjsonquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportjsonquery()</span></code></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reportid</strong> (<em>int</em><em>, </em><em>optional</em>) – Report ID. Defaults to None.</p></li>
+<li><p><strong>appid</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>int</em><em>]</em><em>, </em><em>optional</em>) – App ID; if string, app ID will be grabbed. Defaults to None.</p></li>
+<li><p><strong>issueid</strong> (<em>int</em><em>, </em><em>optional</em>) – Issue ID. Defaults to None.</p></li>
+<li><p><strong>zipfile</strong> (<em>bool</em><em>, </em><em>optional</em>) – Should the app issues be returned in ZIP format.
+Note that this cannot be <code class="xref py py-class docutils literal notranslate"><span class="pre">True</span></code> while <code class="docutils literal notranslate"><span class="pre">reportid</span></code> is given. Defaults to False.</p></li>
+<li><p><strong>issuecount</strong> (<em>int</em><em>, </em><em>optional</em>) – Issue count to be returned. Defaults to 100.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TypeError</strong> – Raised if <code class="docutils literal notranslate"><span class="pre">zipfile</span></code> is <code class="xref py py-class docutils literal notranslate"><span class="pre">True</span></code> while <code class="docutils literal notranslate"><span class="pre">reportid</span></code> is given.</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Returns issue <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> if <code class="docutils literal notranslate"><span class="pre">issueid</span></code> is not provided, and
+<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> if it is provided.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Union[List[dict], Dict[str, Any]]</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pyappscan.query.Query.appissuequery" title="pyappscan.query.Query.appissuequery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">appissuequery()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#pyappscan.query.Query.reportjsonquery" title="pyappscan.query.Query.reportjsonquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportjsonquery()</span></code></a></p></li>
+<li><p><a class="reference internal" href="#pyappscan.query.Query.reportquery" title="pyappscan.query.Query.reportquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportquery()</span></code></a></p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.issuetypequery">
+<span class="sig-name descname"><span class="pre">issuetypequery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">issuetypeid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookuptype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookupname</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.issuetypequery" title="Permalink to this definition"></a></dt>
+<dd><p>Gets data about issue type depending on information given</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>issuetypeid</strong> (<em>int</em><em>, </em><em>optional</em>) – Issuetype ID. If <code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">lookupname</span></code> is required. Defaults to None.</p></li>
+<li><p><strong>lookuptype</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>Type of information to look up; defaults to None. Accepted values are:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">advisory</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix</span></code></p></li>
+</ul>
+</p></li>
+<li><p><strong>lookupname</strong> (<em>str</em><em>, </em><em>optional</em>) – Lookup string identifier; usually <code class="docutils literal notranslate"><span class="pre">wf-*</span></code>. If
+<code class="xref py py-class docutils literal notranslate"><span class="pre">None</span></code>, lookup name associated with issue type is looked up and searched.
+Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns <code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> type HTML information for a lookupname or <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> when no <code class="docutils literal notranslate"><span class="pre">lookuptype</span></code> and <code class="docutils literal notranslate"><span class="pre">lookupname</span></code> is given.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[bytes, Dict[str, Any]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.issuetypes">
+<span class="sig-name descname"><span class="pre">issuetypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.issuetypes" title="Permalink to this definition"></a></dt>
+<dd><p>Queries issue type endpoint</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.jobsquery">
+<span class="sig-name descname"><span class="pre">jobsquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.jobsquery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries jobs endpoint for a given folder or job</p>
+<p>Returns all DAST-configured jobs in a folder. Given a <code class="docutils literal notranslate"><span class="pre">name</span></code> as a job
+ID and no <code class="docutils literal notranslate"><span class="pre">category</span></code>, this will return the entry for the given
+job ID. If given no <code class="docutils literal notranslate"><span class="pre">name</span></code>, this will return all jobs in the
+console. If given a <code class="docutils literal notranslate"><span class="pre">name</span></code> and a <code class="docutils literal notranslate"><span class="pre">category</span></code>, this will return the job
+that matches the category in a manner similar to queryhelper.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If you have both or neither, a <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code> is returned,
+otherwise <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code> is returned</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict OR list</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.query.Query.folderjobsquery" title="pyappscan.query.Query.folderjobsquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">folderjobsquery()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.permissionsquery">
+<span class="sig-name descname"><span class="pre">permissionsquery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.permissionsquery" title="Permalink to this definition"></a></dt>
+<dd><p>Get permissions of the current user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>permissions dictionary</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.reportjsonquery">
+<span class="sig-name descname"><span class="pre">reportjsonquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reportid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">issues</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">summary</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.reportjsonquery" title="Permalink to this definition"></a></dt>
+<dd><p>Get report data in JSON format</p>
+<p>By default you hit the <cite>reports/{reportid}/data</cite> endpoint, from which you will
+get a detailed data dictionary in which the issues list usually at <code class="docutils literal notranslate"><span class="pre">wf-security-issues.issue</span></code>.
+If you set <code class="docutils literal notranslate"><span class="pre">issues</span></code> to <code class="xref py py-class docutils literal notranslate"><span class="pre">True</span></code>, you get a detailed issue dictionary
+which has the issue list at <code class="docutils literal notranslate"><span class="pre">issues.security-issue</span></code>. If you set <code class="docutils literal notranslate"><span class="pre">summary</span></code>
+to <code class="xref py py-class docutils literal notranslate"><span class="pre">True</span></code> you will get an issue summary by severity and status.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reportid</strong> (<em>int</em>) – Report ID</p></li>
+<li><p><strong>issues</strong> (<em>bool</em><em>, </em><em>optional</em>) – Get detailed issues list. Defaults to False.</p></li>
+<li><p><strong>summary</strong> (<em>bool</em><em>, </em><em>optional</em>) – Get summary of issues. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>This method tries to filter out the nonsense and leave
+only the issue lists, but for some reason sometimes the base dictionary
+structure changes, so sometimes we just return the dictionary.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[List[dict], Dict[str, Any]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.reportquery">
+<span class="sig-name descname"><span class="pre">reportquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reportid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">issues</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#pyappscan.query.Query.reportquery" title="Permalink to this definition"></a></dt>
+<dd><p>Report information from XML reports endpoint; please use <a class="reference internal" href="#pyappscan.query.Query.reportjsonquery" title="pyappscan.query.Query.reportjsonquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportjsonquery()</span></code></a> instead</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This only exists for backwards compatibility; please use <a class="reference internal" href="#pyappscan.query.Query.reportjsonquery" title="pyappscan.query.Query.reportjsonquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportjsonquery()</span></code></a> instead</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reportid</strong> (<em>int</em>) – Report ID</p></li>
+<li><p><strong>issues</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to get issue report (default is summary report). Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>HTML/XML of the endpoint</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bytes</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.query.Query.reportjsonquery" title="pyappscan.query.Query.reportjsonquery"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reportjsonquery()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.scannerquery">
+<span class="sig-name descname"><span class="pre">scannerquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.scannerquery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries scanner endpoint</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.schedulequery">
+<span class="sig-name descname"><span class="pre">schedulequery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jobid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.schedulequery" title="Permalink to this definition"></a></dt>
+<dd><p>Get the current schedule of the job</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>jobid</strong> (<em>int</em>) – ID of the job</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary of the schedule of the scan</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.servergroupquery">
+<span class="sig-name descname"><span class="pre">servergroupquery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.servergroupquery" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.templatequery">
+<span class="sig-name descname"><span class="pre">templatequery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.templatequery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries template endpoint.</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.testpolicyquery">
+<span class="sig-name descname"><span class="pre">testpolicyquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.testpolicyquery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries test policy endpoint</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.userquery">
+<span class="sig-name descname"><span class="pre">userquery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.userquery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries user endpoint</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pyappscan.query.Query.usertypequery">
+<span class="sig-name descname"><span class="pre">usertypequery</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#pyappscan.query.Query.usertypequery" title="Permalink to this definition"></a></dt>
+<dd><p>Queries usertype endpoint</p>
+<p>Omit category if using element ID as name argument to query element directly.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – Key to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>category</strong> (<em>str</em><em>, </em><em>optional</em>) – Value to search for. Defaults to <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p><a class="reference internal" href="#pyappscan.helper.Helper.queryhelper" title="pyappscan.helper.Helper.queryhelper"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pyappscan.helper.Helper.queryhelper()</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="run_all_scans_in_a_folder.html" class="btn btn-neutral float-left" title="Run all Scans in a Folder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, arcsector.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

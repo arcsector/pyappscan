@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Object Queries &mdash; PyAppscan 1.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="canonical" href="https://github.com/pages/arcsector/pyappscan/queries.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Core Object Methods" href="special.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PyAppscan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="best-practices.html">Best Practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="special.html">Core Object Methods</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Object Queries</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#default-calling-structure">Default Calling Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#queries-that-follow-this-calling-structure">Queries that follow this calling structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#queries-that-deviate-from-default-structure">Queries that Deviate from Default Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aboutissue">aboutissue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appissuequery">appissuequery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#applicationattributequery">applicationattributequery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#buildfoldertree">buildfoldertree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#currentscans">currentscans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#folderjobsquery">folderjobsquery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#issuequery">issuequery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reportquery-deprecated">reportquery (DEPRECATED)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reportjsonquery">reportjsonquery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-reportquery-reportid-and-issuequery-reportid-differ">How do reportquery(reportid) and issuequery(reportid) differ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#issuetypequery">issuetypequery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#folderitemsquery">folderitemsquery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#folderitemquery">folderitemquery</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyappscan.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyAppscan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Object Queries</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/queries.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="object-queries">
+<h1>Object Queries<a class="headerlink" href="#object-queries" title="Permalink to this headline"></a></h1>
+<p>This page explains the Query subclass. In order to use any of the queries in this subclass, you must call it as <code class="docutils literal notranslate"><span class="pre">pyappscan.[MYQUERY]</span></code>.</p>
+<section id="default-calling-structure">
+<h2>Default Calling Structure<a class="headerlink" href="#default-calling-structure" title="Permalink to this headline"></a></h2>
+<p>The program has different queries to help you return different sets of data, such as a list of folders, or policies. You can sift through this data by adding the function arguments: name and category. The name is the value in the category you would like to search. If you do not choose to specify these arguments, the entire response dictionary will be returned (if any). Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">templatequery</span><span class="p">())</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">templatequery</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Default Template&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="queries-that-follow-this-calling-structure">
+<h2>Queries that follow this calling structure<a class="headerlink" href="#queries-that-follow-this-calling-structure" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">applicationquery</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">currentscans</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">folderquery</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">issuetypes</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">templatequery</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scannerquery</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">testpolicyquery</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userquery</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">usertypequery</span></code></p></li>
+</ul>
+</section>
+<section id="queries-that-deviate-from-default-structure">
+<h2>Queries that Deviate from Default Structure<a class="headerlink" href="#queries-that-deviate-from-default-structure" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#aboutissue">aboutissue</a></p></li>
+<li><p><a class="reference internal" href="#appissuequery">appissuequery</a></p></li>
+<li><p><a class="reference internal" href="#applicationattributequery">applicationattributequery</a></p></li>
+<li><p><a class="reference internal" href="#buildfoldertree">buildfoldertree</a></p></li>
+<li><p>dashboardquery</p></li>
+<li><p>dastquery</p></li>
+<li><p><a class="reference internal" href="#folderjobsquery">folderjobsquery</a></p></li>
+<li><p><a class="reference internal" href="#issuequery">issuequery</a></p></li>
+<li><p>permissionquery</p></li>
+<li><p><a class="reference internal" href="#reportquery-deprecated">reportquery (DEPRECATED)</a></p></li>
+<li><p><a class="reference internal" href="#reportjsonquery">reportjsonquery</a></p></li>
+<li><p><a class="reference internal" href="#issuetypequery">issuetypequery</a></p></li>
+<li><p><a class="reference internal" href="#folderitemsquery">folderitemsquery</a></p></li>
+<li><p><a class="reference internal" href="#folderitemquery">folderitemquery</a></p></li>
+</ul>
+</section>
+<section id="aboutissue">
+<h2>aboutissue<a class="headerlink" href="#aboutissue" title="Permalink to this headline"></a></h2>
+<p>This function gets an html document showing the issue type, description, generation method, and payload, as well as the response received and the fix information. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">aboutissue</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="mi">93</span><span class="p">,</span> <span class="n">issueid</span><span class="o">=</span><span class="mi">31986138</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">aboutissue</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="s2">&quot;App Name&quot;</span><span class="p">,</span> <span class="n">issueid</span><span class="o">=</span><span class="mi">31986138</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="appissuequery">
+<h2>appissuequery<a class="headerlink" href="#appissuequery" title="Permalink to this headline"></a></h2>
+<p>Issue query is a bit different from all the rest of the queries. It takes five optional arguments:</p>
+<ul class="simple">
+<li><p>The name of the application you would like to search issues for. Defaults to quering all available applications and their issues.</p></li>
+<li><p>The severity level of the issues you would like to see. Inheritance applies (accepted values: ‘High’, ‘Medium’, ‘Low’), meaning if you only want to see medium and low issues, you should specify medium, because low issues inherit medium value. Default value is High.</p></li>
+<li><p>The column you would like to sort by. Accepted values: ‘Severity’, ‘Location’, ‘Issue Type’, ‘Element’. Defaults to Severity.</p></li>
+<li><p>Whether you want to include issues with a severity of ‘information’ (True/False). Defaults to False.</p></li>
+<li><p>How many issues you want to pull, with the default being the first 100</p></li>
+</ul>
+<p>Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">appissuequery</span><span class="p">())</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">appissuequery</span><span class="p">(</span>
+  <span class="n">appname</span><span class="o">=</span><span class="s1">&#39;Main&#39;</span><span class="p">,</span>
+  <span class="n">severity</span><span class="o">=</span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span>
+  <span class="n">sortBy</span><span class="o">=</span><span class="s1">&#39;Issue Type&#39;</span><span class="p">,</span>
+  <span class="n">includeinfoseverity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+  <span class="n">itemcount</span><span class="o">=</span><span class="mi">1000</span>
+ <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="applicationattributequery">
+<h2>applicationattributequery<a class="headerlink" href="#applicationattributequery" title="Permalink to this headline"></a></h2>
+<p>This function returns json data on application attributes. You can use this as a reference to create new applications. It takes one mandatory argument, the appid:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">applicationattributequery</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">applicationattributequery</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="buildfoldertree">
+<h2>buildfoldertree<a class="headerlink" href="#buildfoldertree" title="Permalink to this headline"></a></h2>
+<p>This function displays a directory tree of folders that we have. If you need a visual representation of it, or just need to look up a file name, this is a good function to use. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">buildfoldertree</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="currentscans">
+<h2>currentscans<a class="headerlink" href="#currentscans" title="Permalink to this headline"></a></h2>
+<p>If you need a list of currently running scans, you can use the currentscans method to do so. This method is called similarly to the queries, where you can just print the function to see all current scans, or you can print a current scan that’s running by adding an identifier of the scan along with the category. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">currentscans</span><span class="p">())</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">currentscans</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">category</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="folderjobsquery">
+<h2>folderjobsquery<a class="headerlink" href="#folderjobsquery" title="Permalink to this headline"></a></h2>
+<p>This function gets all DAST-type jobs in a folder, with only the folder name or id provided. You may also provide a jobname or ID in order to just return the job dictionary. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">folderjobsquery</span><span class="p">(</span><span class="s1">&#39;Main Folder&#39;</span><span class="p">,</span> <span class="s1">&#39;Job Name&#39;</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">folderjobsquery</span><span class="p">(</span><span class="mi">335</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="issuequery">
+<h2>issuequery<a class="headerlink" href="#issuequery" title="Permalink to this headline"></a></h2>
+<p>This function takes one mandatory argument with three optional arguments: the mandatory argument is either the report id or the appid, and the optional ones are the issueid and zipfile. You can enter a reportid or appid to get all the issues in a specified report or app, and you can also get a specific issue with the use of the issueid. In addition, if you’re using an app, you can specify the zipfile argument as <code class="docutils literal notranslate"><span class="pre">True</span></code> in order to return a zip bit stream. You can also specify an number of issues you’d like to get, with the default being the first 100. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myclass</span><span class="o">.</span><span class="n">issuequery</span><span class="p">(</span><span class="n">reportid</span><span class="o">=</span><span class="mi">1344</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myclass</span><span class="o">.</span><span class="n">issuequery</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="mi">1382</span><span class="p">,</span> <span class="n">issueid</span><span class="o">=</span><span class="mi">7894175831</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myclass</span><span class="o">.</span><span class="n">issuequery</span><span class="p">(</span><span class="n">appid</span><span class="o">=</span><span class="s2">&quot;App Name&quot;</span><span class="p">,</span> <span class="n">issuecount</span><span class="o">=</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="reportquery-deprecated">
+<h2>reportquery (DEPRECATED)<a class="headerlink" href="#reportquery-deprecated" title="Permalink to this headline"></a></h2>
+<p>This function is used to get a report summary (contains no issueid’s but does have a count of the number of issues sorted by severity), or a report of the issues and their issue id’s. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">reportquery</span><span class="p">(</span><span class="n">reportid</span><span class="o">=</span><span class="mi">31986</span><span class="p">,</span> <span class="n">issues</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="reportjsonquery">
+<h2>reportjsonquery<a class="headerlink" href="#reportjsonquery" title="Permalink to this headline"></a></h2>
+<p>This function is a json version of <code class="docutils literal notranslate"><span class="pre">reportquery</span></code>. Eventually <code class="docutils literal notranslate"><span class="pre">reportquery</span></code> will be aliased to this function, but for now I will leave it. This function allows you to get a detailed breakdown of the report packs generated by a scan job. It takes one mandatory argument, the <code class="docutils literal notranslate"><span class="pre">reportid</span></code> (which is either the report ID or the report name), and two optional arguments, <code class="docutils literal notranslate"><span class="pre">issues</span></code> and <code class="docutils literal notranslate"><span class="pre">summary</span></code>. The <code class="docutils literal notranslate"><span class="pre">issues</span></code> parameter is used to get a report along with detailed information about each individual issue in the report (such as traffic summary, and other information), whereas the <code class="docutils literal notranslate"><span class="pre">summary</span></code> parameter is used to generate a base-level summary about issues found in the report, such as severity level and count. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">reportjsonquery</span><span class="p">(</span><span class="mi">12345</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">reportjsonquery</span><span class="p">(</span><span class="mi">12345</span><span class="p">,</span> <span class="n">issues</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">reportjsonquery</span><span class="p">(</span><span class="mi">12345</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+<section id="how-do-reportquery-reportid-and-issuequery-reportid-differ">
+<h3>How do reportquery(reportid) and issuequery(reportid) differ<a class="headerlink" href="#how-do-reportquery-reportid-and-issuequery-reportid-differ" title="Permalink to this headline"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">reportquery(reportid)</span></code> returns a report xml document of issues and issueids. <code class="docutils literal notranslate"><span class="pre">issuequery(reportid)</span></code> returns a list of issue xml documents, detailing issues further than the reportquery does.</p>
+</section>
+</section>
+<section id="issuetypequery">
+<h2>issuetypequery<a class="headerlink" href="#issuetypequery" title="Permalink to this headline"></a></h2>
+<p>This function gets information about a specific issue type. Multiple issues can have the same issue type. For information about fixes and advisory on the issue type, see this query. It takes one mandatory argument, and two optional arguments: issuetypeid is the mandatory one, and lookuptype and lookupname are the optional arguments. Accepted values for lookuptype are “advisory” or “fix”. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">issuetypequery</span><span class="p">(</span><span class="n">issuetypeid</span><span class="o">=</span><span class="mi">525</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">issuetypequery</span><span class="p">(</span><span class="n">issuetypeid</span><span class="o">=</span><span class="s2">&quot;Issue Name&quot;</span><span class="p">,</span> <span class="n">lookuptype</span><span class="o">=</span><span class="s1">&#39;advisory&#39;</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">issuetypequery</span><span class="p">(</span><span class="n">issuetypeid</span><span class="o">=</span><span class="s2">&quot;Issue Name&quot;</span><span class="p">,</span> <span class="n">lookuptype</span><span class="o">=</span><span class="s1">&#39;fix&#39;</span><span class="p">,</span> <span class="n">lookupname</span><span class="o">=</span><span class="s1">&#39;wf-security-check-attcrosssitescripting&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="folderitemsquery">
+<h2>folderitemsquery<a class="headerlink" href="#folderitemsquery" title="Permalink to this headline"></a></h2>
+<p>This function returns items in a folder, not just DAST-configured jobs like <cite>``folderjobsquery`</cite> &lt;#folderjobsquery&gt;`_. This will return any item in a folder, be it report pack, content scan job, dashboard, template, and all other types. It has one mandatory argument and three optional arguments. The mandatory argument is <code class="docutils literal notranslate"><span class="pre">folderid</span></code> which is the name/id of the folder you’d like to use. The optional arguments are <code class="docutils literal notranslate"><span class="pre">keyword</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, and <code class="docutils literal notranslate"><span class="pre">category</span></code>. Name and category function the same as the default call structure. Keyword is simply an easy way to ensure you get a certain type of folder item. Accepted values are below, along with the item descriptions, with more possibly available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">report-pack</span></code>: a report pack of scan issues</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">content-scan-job</span></code>: a job-type, whether DAST or otherwise</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dashboard</span></code>: a display configuration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import-job</span></code>: config for importing issues from other appscan versions</p></li>
+</ul>
+<p>Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">folderitemsquery</span><span class="p">(</span><span class="n">folderid</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">folderitemsquery</span><span class="p">(</span><span class="n">folderid</span><span class="o">=</span><span class="s2">&quot;Folder Name&quot;</span><span class="p">,</span> <span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;report-pack&quot;</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">folderitemsquery</span><span class="p">(</span><span class="n">folderid</span><span class="o">=</span><span class="s2">&quot;Folder Name&quot;</span><span class="p">,</span> <span class="n">keyword</span><span class="o">=</span><span class="s2">&quot;report-pack&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;My Report pack name&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="folderitemquery">
+<h2>folderitemquery<a class="headerlink" href="#folderitemquery" title="Permalink to this headline"></a></h2>
+<p>This function gets information about a specific folderitem. This gets much more granular than <code class="docutils literal notranslate"><span class="pre">folderitemsquery</span></code>. It accepts one mandatory argument, <code class="docutils literal notranslate"><span class="pre">folderitemid</span></code> which can be id or name, and one of four optional arguments: <code class="docutils literal notranslate"><span class="pre">options</span></code>, <code class="docutils literal notranslate"><span class="pre">reports</span></code>, <code class="docutils literal notranslate"><span class="pre">scanlog</span></code>, and <code class="docutils literal notranslate"><span class="pre">statistics</span></code>. Usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">folderitemquery</span><span class="p">(</span><span class="n">folderitemid</span><span class="o">=</span><span class="mi">1110</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">folderitemquery</span><span class="p">(</span><span class="n">folderitemid</span><span class="o">=</span><span class="s2">&quot;my folder item name&quot;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">myClass</span><span class="o">.</span><span class="n">folderitemquery</span><span class="p">(</span><span class="n">folderitemid</span><span class="o">=</span><span class="mi">1110</span><span class="p">,</span> <span class="n">statistics</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="special.html" class="btn btn-neutral float-left" title="Core Object Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, arcsector.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

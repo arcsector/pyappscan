@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Practices &mdash; PyAppscan 1.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="canonical" href="https://github.com/pages/arcsector/pyappscan/best-practices.html" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Core Object Methods" href="special.html" />
+    <link rel="prev" title="Welcome to PyAppscan’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PyAppscan
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Best Practices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id-vs-name">ID vs Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-creating-jobs-and-scans">On Creating Jobs and Scans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-scanning-systems">On Scanning Systems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="special.html">Core Object Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queries.html">Object Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyappscan.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PyAppscan</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Best Practices</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/best-practices.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="best-practices">
+<h1>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline"></a></h1>
+<section id="id-vs-name">
+<h2>ID vs Name<a class="headerlink" href="#id-vs-name" title="Permalink to this headline"></a></h2>
+<p>Obviously it’s convenient to pass a name instead of an id, and most of the functions allow you to do such a thing. However, be warned that if you’re executing a loop and you pass a name instead of an id, your program time will suffer:</p>
+<p>It is much, much faster to pass the foldername, policyname, and templatename as their IDs (the function will receive them this way), instead of their names. This is because whichever ones you pass by name are run as queries in order to get them as IDs, thus, when using this function (or any function that asks for names or IDs), it would be much, much faster to simply run a templatequery or a policyquery first, save the ID, then use it in this function instead of the name, thereby executing the query only once instead of multiple times.</p>
+</section>
+<section id="on-creating-jobs-and-scans">
+<h2>On Creating Jobs and Scans<a class="headerlink" href="#on-creating-jobs-and-scans" title="Permalink to this headline"></a></h2>
+<p>If you are creating a job and scan, associate it with an application. If you are unsure which application you should be using, please consult your admin.</p>
+</section>
+<section id="on-scanning-systems">
+<h2>On Scanning Systems<a class="headerlink" href="#on-scanning-systems" title="Permalink to this headline"></a></h2>
+<p>If you’re planning on running a scan, be sure to only run one at a time, unless advised by an admin that you are able run more than one. This library has all the tools necessary to start your scan (startjob), monitor it to make sure it’s done running (currentscans), and then run the next one.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to PyAppscan’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="special.html" class="btn btn-neutral float-right" title="Core Object Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, arcsector.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
