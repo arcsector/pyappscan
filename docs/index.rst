@@ -30,9 +30,7 @@ Can be installed with:
 
 .. code-block:: shell
 
-   git clone https://github.com/arcsector/pyappscan.git
-   cd pyappscan/
-   sudo python3 setup.py install
+   pip install --user pyappscan
 
 How to Use
 ----------

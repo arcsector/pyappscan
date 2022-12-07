@@ -17,14 +17,11 @@ Your version of Appscan should be able to support the requisite API calls made b
 - Python 3.5 or higher
 - requests
 - beautifulsoup4
-- pytest
 
 Can be installed with:
 
 ```shell
-git clone https://github.com/arcsector/pyappscan.git
-cd pyappscan/
-sudo python3 setup.py install
+pip install --user pyappscan
 ```
 
 ## How to Use
