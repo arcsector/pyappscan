@@ -65,3 +65,5 @@ target/
 # Personal files
 build.bat
 publish.bat
+.pypirc
+.pip
